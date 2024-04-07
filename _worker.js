@@ -72,7 +72,19 @@ export default {
 					};
 					case `/bestip/${userID_Path}`: {
 						const headers = request.headers;
-						const url = `https://sub.xf.free.hr/auto?host=${request.headers.get('Host')}&uuid=${userID}&path=/`;
+						const baseurl = new URL(request.url);
+						const format = baseurl.searchParams.get('format');
+						let url = '';
+						switch (format){
+							case 'clash':
+								url = `https://sub.xf.free.hr/api/sub?host=${request.headers.get('Host')}&uuid=${userID}&format=clash&path=/`;
+								break;
+							case 'singbox':
+								url = `https://sub.xf.free.hr/api/sub?host=${request.headers.get('Host')}&uuid=${userID}&format=singbox&path=/`;
+								break;
+							default:
+								url = `https://sub.xf.free.hr/auto?host=${request.headers.get('Host')}&uuid=${userID}&path=/`;							
+						}
 						const bestSubConfig = await fetch(url, { headers: headers });
 						return bestSubConfig;
 					};
