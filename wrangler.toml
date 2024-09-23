@@ -4,6 +4,7 @@ compatibility_date = "2023-12-15"
 
 [vars]
 UUID = "5eb3334c-e47f-4ceb-a9f2-1336bb136867"
+PROXYIP = "ProxyIP.JP.fxxk.dedyn.io"
 # PROXYIP = "1.2.3.4"
 # DNS_RESOLVER_URL = "https://cloudflare-dns.com/dns-query"
 # NODE_ID = "1"
